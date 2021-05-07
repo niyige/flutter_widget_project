@@ -27,8 +27,9 @@ class _PaginationPageState extends State<PaginationPage> {
               right: 30,
               // width: MediaQuery.of(context).size.width,
               child: MyPagination(
-                totalCount: 101,
+                totalCount: 18,
                 currentPage: 1,
+                pageSize: 2,
                 changePage: (int pageNum) {
                   //
                 },

@@ -5,10 +5,16 @@ class MyPagination extends StatefulWidget {
 
   final int currentPage;
 
+  final int pageSize;
+
   final Function changePage;
 
   const MyPagination(
-      {Key key, this.totalCount, this.currentPage, this.changePage})
+      {Key key,
+      this.totalCount = 0,
+      this.currentPage = 1,
+      this.pageSize = 10,
+      this.changePage})
       : super(key: key);
 
   @override
@@ -16,7 +22,7 @@ class MyPagination extends StatefulWidget {
 }
 
 class _MyPaginationState extends State<MyPagination> {
-  int pageSize = 1;
+  // int pageSize = 1;
 
   int currentPage = 1;
 
@@ -49,16 +55,17 @@ class _MyPaginationState extends State<MyPagination> {
   _buildItemView() {
     int page;
 
-    page = widget.totalCount ~/ pageSize;
+    page = widget.totalCount ~/ widget.pageSize;
 
-    print("${widget.totalCount % pageSize}");
+    print("${widget.totalCount % widget.pageSize}");
 
     //不能整除
-    if (widget.totalCount % pageSize > 0) {
+    if (widget.totalCount % widget.pageSize > 0) {
       page += 1;
     }
 
     if (page <= 7) {
+      pageList.clear();
       for (int i = 1; i <= page; i++) {
         pageList.add(i);
       }
@@ -121,7 +128,8 @@ class _MyPaginationState extends State<MyPagination> {
                   if (pageList.indexOf(e) == 1 && e > 5) {
                     currentPage = e - 2;
                   } else if (pageList.indexOf(e) + 1 == pageList.length - 1 &&
-                      currentPage < 5) {
+                      currentPage < 5 &&
+                      currentPage + 5 <= page) {
                     currentPage = currentPage + 5;
                   } else if (pageList.indexOf(e) + 1 == pageList.length - 1 &&
                       page - e >= 2) {
