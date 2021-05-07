@@ -1,0 +1,29 @@
+{
+  "sync.gist": "7419c733127a3cc309a50a3b66e7ca1f",
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.fontSize": 13,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "files.autoSave": "off",
+  "sync.forceUpload": true,
+  "window.zoomLevel": 0,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript"
+  },
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  // "editor.wordWrapColumn": 300,
+  "dart.openDevTools": "never",
+  "git.ignoreLimitWarning": true
+  //"dart.lineLength": 300
+}
