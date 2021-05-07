@@ -30,6 +30,7 @@ class _MyPaginationState extends State<MyPagination> {
 
   bool isClick = false;
 
+  int page;
   @override
   void initState() {
     super.initState();
@@ -43,18 +44,52 @@ class _MyPaginationState extends State<MyPagination> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      // color: Colors.white,
       child: Row(
         children: [
+          Container(
+            child: Text(
+              "共${widget.totalCount}条",
+              style: TextStyle(fontSize: 14),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              if (currentPage - 1 > 0) {
+                setState(() {
+                  widget.changePage(currentPage - 1);
+                  currentPage = currentPage - 1;
+                });
+              }
+            },
+            child: Icon(
+              Icons.keyboard_arrow_left,
+              size: 17,
+              color: Color(0xFFC9CDD4),
+            ),
+          ),
           ..._buildItemView(),
+          GestureDetector(
+            onTap: () {
+              if (currentPage + 1 <= page) {
+                setState(() {
+                  widget.changePage(currentPage + 1);
+                  currentPage = currentPage + 1;
+                });
+              }
+            },
+            child: Icon(
+              Icons.keyboard_arrow_right,
+              size: 17,
+              color: Color(0xFFC9CDD4),
+            ),
+          ),
         ],
       ),
     );
   }
 
   _buildItemView() {
-    int page;
-
     page = widget.totalCount ~/ widget.pageSize;
 
     print("${widget.totalCount % widget.pageSize}");

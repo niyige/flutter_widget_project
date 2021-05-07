@@ -27,6 +27,7 @@ class _PaginationPageState extends State<PaginationPage> {
             bottom: 100,
             width: MediaQuery.of(context).size.width,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 MyPagination(
                   totalCount: 101,
@@ -56,6 +57,9 @@ class _PaginationPageState extends State<PaginationPage> {
                     DropdownItem(value: '100条/页'),
                     // DropdownItem(value: '1000条/页'),
                   ],
+                ),
+                SizedBox(
+                  width: 10,
                 ),
               ],
             ),
