@@ -149,8 +149,8 @@ class _MyPaginationState extends State<MyPagination> {
                 if (null != widget.changePage) widget.changePage(e);
               },
               child: Container(
-                width: 30,
-                height: 30,
+                width: 25,
+                height: 25,
                 alignment: Alignment.center,
                 child: Text(
                   (page > 7 &&
